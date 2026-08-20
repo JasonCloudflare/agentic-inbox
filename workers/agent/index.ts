@@ -462,6 +462,7 @@ Based on the email content and thread context above, draft a reply using draft_r
 		];
 
 		try {
+			console.error("123")
 			const result = await generateText({
 				model: workersai("@cf/moonshotai/kimi-k2.5"),
 				system: systemPrompt,
@@ -469,7 +470,7 @@ Based on the email content and thread context above, draft a reply using draft_r
 				tools,
 				stopWhen: stepCountIs(5),
 			});
-			console.log(result)
+			console.error(result)
 			// Check if draft_reply was called (saves to Drafts as side effect).
 			// If NOT, save the agent's text response as a draft directly.
 			const draftToolCalled = result.steps.some((step) =>
